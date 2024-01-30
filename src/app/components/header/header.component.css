@@ -1,0 +1,186 @@
+header {
+  width: 100%;
+  height: 80px;
+  padding: 16px 16px 16px 32px;
+  background-color: var(--color-primary-1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+#hamburguer {
+  cursor: pointer;
+}
+
+#profile--overview {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+#profile--overview {
+  cursor: pointer;
+}
+
+#profile--overview > a > img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+#profile--overview > span {
+  color: white;
+  font-weight: 300;
+  font-family: Poppins, sans-serif;
+}
+
+nav {
+  z-index: 1000;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: var(--color-primary-1);
+  padding: 64px 64px 32px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+#nav--header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
+
+#nav--header > app-icon {
+  cursor: pointer;
+  width: 75px;
+}
+
+#nav--header > span {
+  color: white;
+  font-weight: 300;
+  font-size: 2rem;
+  font-family: Poppins, sans-serif;
+  cursor: pointer;
+}
+
+#down {
+  margin-top: auto;
+}
+
+.links {
+  list-style: none;
+}
+
+.links > *:not(:last-child) {
+  margin-bottom: 16px;
+}
+
+.links > li > a {
+  color: white;
+  font-weight: 600;
+  font-size: 1.5rem;
+  font-family: Poppins, sans-serif;
+  text-decoration: none;
+}
+
+.links#down > li > a {
+  color: #aaa;
+}
+
+.slide-from-left {
+  animation: slide-from-left 0.5s ease;
+}
+
+.slide-to-left {
+  animation: slide-to-left 0.5s ease;
+}
+
+@keyframes slide-from-left {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-to-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  header {
+    flex-direction: row-reverse;
+  }
+  #hamburguer {
+    display: none;
+  }
+
+  nav {
+    padding: 0;
+    position: static;
+    top: auto;
+    left: auto;
+    height: auto;
+    width: auto;
+    display: flex !important;
+    flex-direction: row;
+    justify-content: flex-start;
+    box-shadow: none;
+  }
+
+  #nav--header {
+    width: auto;
+  }
+
+  #nav--header > app-icon {
+    width: 60px;
+  }
+
+  #nav--header > span {
+    display: none;
+  }
+
+  .links {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .links > *:not(:last-child) {
+    margin: 0;
+  }
+
+  .links > li > a {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  #down {
+    display: none;
+  }
+
+  .slide-from-left {
+    animation: none;
+  }
+
+  .slide-to-left {
+    animation: none;
+  }
+}

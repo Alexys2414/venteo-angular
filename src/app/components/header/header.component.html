@@ -1,0 +1,42 @@
+<header>
+  <app-icon id="hamburguer" type="hamburguer" (click)="toggleNav()" />
+  <div id="profile--overview">
+    <span>{{ user.money }} €</span>
+    <a routerLink="/profile">
+      <img [src]="user.imageUrl" alt="perfil" />
+    </a>
+  </div>
+  <nav class="hidden">
+    <div id="nav--header">
+      <app-icon id="logo" type="logo" />
+      <span (click)="toggleNav()">X</span>
+    </div>
+    <ul id="up" class="links">
+      <li class="link">
+        <a (click)="closeNav()" routerLink="/" routerLinkActive="active"
+          >Subastas</a
+        >
+      </li>
+      <li class="link">
+        <a
+          (click)="closeNav()"
+          routerLink="/notifications"
+          routerLinkActive="active"
+          >Notificaciones</a
+        >
+      </li>
+      <li class="link">
+        <a (click)="closeNav()" routerLink="/wallet" routerLinkActive="active"
+          >Monedero</a
+        >
+      </li>
+    </ul>
+    <ul id="down" class="links">
+      <li class="link">
+        <a (click)="closeNav()" routerLink="/logout" routerLinkActive="active"
+          >Cerrar sesión</a
+        >
+      </li>
+    </ul>
+  </nav>
+</header>

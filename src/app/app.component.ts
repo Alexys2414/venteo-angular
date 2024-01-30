@@ -1,13 +1,24 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { Component, ViewChild } from '@angular/core';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { User } from '../types';
+import { UserService } from './services/user.service';
+import { UserLayoutComponent } from './layouts/user-layout/user-layout.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [UserLayoutComponent, HeaderComponent, FooterComponent, CommonModule, RouterLink, RouterLinkActive, RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'angular-playground';
+  userService: UserService = new UserService();
+  user: User;
+
+  constructor() { // Esto deberia de decidirlo un servicio
+    this.user = this.userService.getUser();
+  }
 }
