@@ -17,6 +17,22 @@ export class HeaderComponent {
 
   constructor() {}
 
+  toggleDropdown() {
+    const dropdown = document.querySelector("#dropdown") as HTMLElement;
+    if (dropdown.classList.contains("hidden")) {
+      dropdown.classList.remove("slide-out-top");
+      dropdown.classList.add("slide-in-top");
+      dropdown.classList.toggle("hidden");
+
+    } else {
+      dropdown.classList.remove("slide-in-top");
+      dropdown.classList.add("slide-out-top");
+      setTimeout(() => {
+        dropdown.classList.toggle("hidden");
+      }, 300);
+    }
+  }
+
   toggleNav() {
     if (this.isNavOpen) {
       this.closeNav();
