@@ -19,3 +19,21 @@ export interface User {
   role: number;
   money?: number;
 }
+
+export interface BidOverview {
+  userName: string;
+  imageUrl: string;
+  amount: number;
+}
+
+export interface Auction {
+  auctionId: number;
+  auctionName: string;
+  auctionDescription: string;
+  categoryId: number;
+  userId: number;
+  startsAt: Date;
+  endsAt: Date;
+  initialPrice: number;
+  imageUrl: string;
+}
