@@ -26,6 +26,14 @@ export interface LoginForm {
   password: string;
 }
 
+export interface Category {
+  categoryId: number;
+  name: string;
+  description: string;
+  imageUrl: string;
+  auctions?: Auction[];
+}
+
 export interface Bid {
   bidId: number;
   auctionId: number;
