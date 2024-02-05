@@ -19,3 +19,12 @@ export interface User {
   role: number;
   money?: number;
 }
+
+export interface Issue {
+  id: number;
+  subject: string;
+  message: string;
+  createdAt?: Date;
+  isSolved: boolean;
+  userId: number;
+}
