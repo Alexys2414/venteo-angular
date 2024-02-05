@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Notification } from '../../../types';
+import { NotificationsService } from '../../services/notifications.service';
 
 @Component({
   selector: 'app-notification',
@@ -8,5 +10,7 @@ import { Component } from '@angular/core';
   styleUrl: './notification.component.css'
 })
 export class NotificationComponent {
+  @Input({required: true}) notification: Notification = {} as Notification;
 
+  constructor() { }
 }
