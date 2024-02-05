@@ -19,3 +19,11 @@ export interface User {
   role: number;
   money?: number;
 }
+
+export interface Notification {
+  id: number;
+  categoryId: number;
+  subject: string;
+  message: string;
+  sendOn: Date;
+}
