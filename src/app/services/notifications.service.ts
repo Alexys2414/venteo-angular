@@ -19,13 +19,13 @@ export class NotificationsService {
   saveNotification(notification: Notification): Observable<Notification> {
     return this.http.post<Notification>(`${this.url}/notifications`, notification);
   }
-  updateNotification(notification: Notification, id: number): Observable<Notification>{
-    return this.http.put<Notification>(`${this.url}/notification/${id}`, notification);
+  updateNotification(notification: Notification, notificationId: number): Observable<Notification>{
+    return this.http.put<Notification>(`${this.url}/notification/${notificationId}`, notification);
   }
-  patchNotification(notification: Notification, id: number): Observable<Notification>{
-    return this.http.patch<Notification>(`${this.url}/notification/${id}`, notification);
+  patchNotification(notification: Notification, notificationId: number): Observable<Notification>{
+    return this.http.patch<Notification>(`${this.url}/notification/${notificationId}`, notification);
   }
-  deleteNotification(id: number): Observable<Notification>{
-    return this.http.delete<Notification>(`${this.url}/notification/${id}`);
+  deleteNotification(notificationId: number): Observable<Notification>{
+    return this.http.delete<Notification>(`${this.url}/notification/${notificationId}`);
   }
 }

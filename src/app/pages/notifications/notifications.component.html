@@ -1,12 +1,7 @@
 <main>
-  @for (notification of notifications; track notification.id) {
+  @for (notification of notifications; track notification.notificationId) {
   <app-notification [notification]="notification"></app-notification>
   }@empty {
   <p>Sin notificaciones</p>
   }
-  <!-- <app-notification
-    *ngFor="let notification of notifications"
-    [notification]="notification"
-  ></app-notification>
-  -->
 </main>

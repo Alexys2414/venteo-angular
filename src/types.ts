@@ -1,3 +1,4 @@
+import { Timestamp } from "rxjs";
 
 // Tipos de la aplicación
 export interface Link {
@@ -21,9 +22,9 @@ export interface User {
 }
 
 export interface Notification {
-  id: number;
+  notificationId: number;
   categoryId: number;
   subject: string;
   message: string;
-  sendOn: Date;
+  sendOn: string;
 }

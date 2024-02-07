@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NotificationComponent } from '../../components/notification/notification.component';
 import { NotificationsService } from '../../services/notifications.service';
+import { Notification } from '../../../types';
 
 @Component({
   selector: 'app-notifications',
@@ -15,6 +16,8 @@ export class NotificationsComponent{
   constructor(private notificationService: NotificationsService) { }
 
   findAllByUserId():void{
-    this.notificationService.findAllByUserId(1).subscribe(notifications => this.notifications = notifications);
+    this.notificationService.findAllByUserId(2).subscribe(notifications => {
+      this.notifications = notifications;
+    });
   }
 }
