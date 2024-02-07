@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NotificationComponent } from '../../components/notification/notification.component';
 import { NotificationsService } from '../../services/notifications.service';
-import { Notification } from '../../../types';
 
 @Component({
   selector: 'app-notifications',
@@ -11,13 +10,18 @@ import { Notification } from '../../../types';
   styleUrl: './notifications.component.css'
 })
 export class NotificationsComponent{
-  notifications: Notification[] = [];
+ 
+  notificationsU: any[] = [];
+  constructor(
+    private notificationService: NotificationsService) { }
 
-  constructor(private notificationService: NotificationsService) { }
-
+  ngOnInit(): void {
+    this.findAllByUserId();
+  }
   findAllByUserId():void{
-    this.notificationService.findAllByUserId(2).subscribe(notifications => {
-      this.notifications = notifications;
+    this.notificationService.findAllByUserId(1).subscribe(notifications => {
+      console.log('notifications:', notifications);
+      this.notificationsU = notifications;
     });
   }
 }

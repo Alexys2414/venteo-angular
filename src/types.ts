@@ -26,5 +26,5 @@ export interface Notification {
   categoryId: number;
   subject: string;
   message: string;
-  sendOn: string;
+  sendOn: Date;
 }
