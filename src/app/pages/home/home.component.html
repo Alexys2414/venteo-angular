@@ -1,10 +1,11 @@
 <main>
   <section>
     <div>
-      <app-auction></app-auction>
+      @for (auction of auctions; track auction.auctionId) {
+      <app-auction [auction]="auction"></app-auction>
+      }@empty {
+      <p>Sin subastas</p>
+      }
     </div>
-  </section>
-  <section>
-    <div></div>
   </section>
 </main>

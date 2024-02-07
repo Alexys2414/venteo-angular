@@ -1,14 +1,13 @@
 <article>
-  <img
-    src="https://imgs.search.brave.com/3GH1QOVASYcv_AGieYvNaoEiCRhDq-52BGQFKxKtzDA/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9yZXMu/Y2xvdWRpbmFyeS5j/b20vZGFnM3Jta3hn/L2ZfYXV0byx3XzEw/MjQsaF81NzYsY19m/aXQvYmxvZy8yMDIx/LzA3L3N1di1kZS14/aWFvbWktMS5qcGVn"
-    alt="imagen subasta"
-  />
+  <!--Lo de las imágenes hay que ver como hacerlo-->
+  <img src="{{ auction.imageUrl }}" alt="imagen subasta" />
   <div>
-    <h3>Nombre</h3>
+    <h3>{{ auction.auctionName }}</h3>
     <div>
-      <small>Joselito el de las maracas</small>
+      <!--REVISAR    auction solo tiene el userId, no el nombre-->
+      <small>{{ auction.userId }}</small>
       <span class="live">En directo</span>
     </div>
-    <span>20.000 €</span>
+    <span>{{ auction.initialPrice }}</span>
   </div>
 </article>
