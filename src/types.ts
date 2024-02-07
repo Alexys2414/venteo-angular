@@ -28,3 +28,15 @@ export interface Notification {
   message: string;
   sendOn: Date;
 }
+
+export interface Auction{
+  auctionId: number;
+  auctionName: string;
+  auctionDescription: string;
+  categoryId: number;
+  userId: number;
+  startsAt: Date;
+  endsAt: Date;
+  initialPrice: number;
+  imageUrl: string;
+}

@@ -8,7 +8,7 @@ import { SupportComponent } from './pages/support/support.component';
 import { AboutComponent } from './pages/about/about.component';
 import { TermsComponent } from './pages/terms/terms.component';
 import { CategoryComponent } from './pages/category/category.component';
-import { AuctionComponent } from './pages/auction/auction.component';
+import { AuctionComponent } from './pages/liveAuction/liveAuction.component';
 import { WalletComponent } from './pages/wallet/wallet.component';
 
 export const routes: Routes = [

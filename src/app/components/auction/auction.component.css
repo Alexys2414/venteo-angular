@@ -1,0 +1,54 @@
+article {
+  display: inline-block;
+  width: 300px;
+  border-radius: 8px;
+  background: var(----background-color, #fff);
+}
+
+article > img {
+  width: 100%;
+  height: 150px;
+  border-radius: 8px 8px 0 0;
+}
+
+article h3 {
+  font-weight: 600;
+}
+
+article > div {
+  padding: 16px 16px 24px 16px;
+}
+
+article > div > div {
+  display: flex;
+  flex-direction: column;
+}
+
+article .live {
+  background-color: red;
+  color: #fff;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-align: center;
+}
+
+article > div > span::before {
+  content: "Desde: ";
+}
+
+article > div > span:last-child {
+  display: block;
+  width: 100%;
+  text-align: end;
+  margin-top: 8px;
+  font-size: 0.8rem;
+  color: var(--color-text);
+}
+@media screen and (min-width: 768px) {
+  article div > div {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}

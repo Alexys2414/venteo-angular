@@ -1,0 +1,16 @@
+main {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 32px 16px;
+}
+
+section {
+  display: block;
+}
+
+main > section > div {
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  -ms-overflow-style: none; /* para firefox */
+}
