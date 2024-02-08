@@ -66,3 +66,10 @@ export interface Auction {
   initialPrice: number;
   imageUrl: string;
 }
+
+export interface Promotion {
+  promotionId: number;
+  code: string;
+  endsAt: Date;
+  amount: number;
+}
