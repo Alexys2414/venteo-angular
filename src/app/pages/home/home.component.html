@@ -1,3 +1,9 @@
 <main>
-  <p>home works!</p>
+  @for (item of auctions; track auction.auctionId) {
+  <p>{{ item.auctionDescription }}</p>
+  }
+
+  <h2>Subasta 1</h2>
+  <p>{{ auction.auctionDescription }}</p>
+  <p>{{ auction.auctionName }}</p>
 </main>

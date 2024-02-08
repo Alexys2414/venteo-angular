@@ -3,7 +3,6 @@ import { HomeComponent } from './pages/home/home.component';
 import { NotificationsComponent } from './pages/notifications/notifications.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
-import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { SupportComponent } from './pages/support/support.component';
 import { AboutComponent } from './pages/about/about.component';
 import { TermsComponent } from './pages/terms/terms.component';
