@@ -16,18 +16,16 @@ export class AuctionComponent implements OnInit{
   userName: string = '';
 
   constructor(private userService: UserService) { 
-
-    console.log('auction:', this.auction);
   }
 
   ngOnInit(): void {
     this.findUserById(this.auction.userId);
-    console.log('userName:', this.userName);
   }
 
   findUserById(id: number): void {
     this.userService.findById(id).subscribe(user => {
-      this.userName = user.userName || '';
+      this.userName = '@'+user.userName || 'unknown';
     });
   }
 }
+      
