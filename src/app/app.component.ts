@@ -6,11 +6,12 @@ import { UserService } from './services/user.service';
 import { UserLayoutComponent } from './layouts/user-layout/user-layout.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { IssuesComponent } from './pages/issues/issues.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [UserLayoutComponent, HeaderComponent, FooterComponent, CommonModule, RouterLink, RouterLinkActive, RouterOutlet],
+  imports: [UserLayoutComponent, HeaderComponent, FooterComponent, CommonModule, RouterLink, RouterLinkActive, RouterOutlet, IssuesComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
