@@ -67,3 +67,12 @@ export interface Auction {
   initialPrice: number;
   imageUrl: string;
 }
+
+export interface Issue {
+  id: number;
+  subject: string;
+  message: string;
+  createdAt?: Date;
+  isSolved: boolean;
+  userId: number;
+}
