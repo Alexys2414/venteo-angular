@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Auction } from '../../../types';
+import { Auction, User } from '../../../types';
 
 @Component({
   selector: 'app-auction',
@@ -10,7 +10,7 @@ import { Auction } from '../../../types';
 })
 export class AuctionComponent {
   @Input({required: true}) auction: Auction = {} as Auction;
-
+  @Input({required: true}) user: User = {} as User; 
   constructor() { }
 
 }
