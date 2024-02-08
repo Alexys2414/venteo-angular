@@ -46,6 +46,9 @@ article > div > span:last-child {
   font-size: 0.8rem;
   color: var(--color-text);
 }
+article div div small::before {
+  content: "@";
+}
 @media screen and (min-width: 768px) {
   article div > div {
     flex-direction: row;

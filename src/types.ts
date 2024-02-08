@@ -17,7 +17,7 @@ export interface User {
   bornDate?: Date;
   imageUrl?: string;
   createdAt?: Date;
-  role?: number;
+  roleId?: number;
   money?: number;
 }
 
