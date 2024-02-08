@@ -20,23 +20,23 @@ export class AuctionService {
   }
 
   findById(auctionId: number): Observable<Auction> {
-    return this.http.get<Auction>(`${this.url}/auctions/${auctionId}`);
+    return this.http.get<Auction>(`${this.url}/auction/${auctionId}`);
   }
 
   updateAuction(auction: Auction, auctionId: number): Observable<Auction>{
-    return this.http.put<Auction>(`${this.url}/auctions/${auctionId}`, auction);
+    return this.http.put<Auction>(`${this.url}/auction/${auctionId}`, auction);
   }
 
   patchAuction(auction: Auction, auctionId: number): Observable<Auction>{
-    return this.http.patch<Auction>(`${this.url}/auctions/${auctionId}`, auction);
+    return this.http.patch<Auction>(`${this.url}/auction/${auctionId}`, auction);
   }
 
   deleteAuction(auctionId: number): Observable<Auction>{
-    return this.http.delete<Auction>(`${this.url}/auctions/${auctionId}`);
+    return this.http.delete<Auction>(`${this.url}/auction/${auctionId}`);
   }
 
   findBidsByAuctionId(auctionId: number): Observable<Auction[]> {
-    return this.http.get<Auction[]>(`${this.url}/auctions/${auctionId}/bids`);
+    return this.http.get<Auction[]>(`${this.url}/auction/${auctionId}/bids`);
   }
   
 }
