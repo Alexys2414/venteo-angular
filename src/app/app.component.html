@@ -1,3 +1,7 @@
+@switch (user.role) { @case (2) {
+<h1>Admin</h1>
+} @default {
 <app-user-layout [user]="user">
   <router-outlet></router-outlet>
 </app-user-layout>
+} }

@@ -1,8 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { User } from '../types';
-import { UserService } from './services/user.service';
 import { UserLayoutComponent } from './layouts/user-layout/user-layout.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -15,10 +14,15 @@ import { FooterComponent } from './components/footer/footer.component';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  userService: UserService = new UserService();
-  user: User;
+  user: User = {
+    id: 1,
+    firstName: 'John Doe',
+    lastName: 'Doe',
+    email: 'j' + 'doe' + '@example.com',
+    money: 1000,
+    role: 1
+  }
 
   constructor() { // Esto deberia de decidirlo un servicio
-    this.user = this.userService.getUser();
   }
 }

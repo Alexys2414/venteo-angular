@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UserLayoutComponent } from '../../layouts/user-layout/user-layout.component';
 import { AuctionComponent } from '../../components/auction/auction.component';
 import { AuctionService } from '../../services/auction.service';
@@ -10,6 +10,7 @@ import { AuctionService } from '../../services/auction.service';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
+
 export class HomeComponent {
 
   auctions: any[] = [];
