@@ -1,4 +1,3 @@
-import { Timestamp } from "rxjs";
 
 // Tipos de la aplicación
 export interface Link {
