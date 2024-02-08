@@ -67,9 +67,9 @@ export interface Auction {
   imageUrl: string;
 }
 export interface Issue {
-  id: number;
-  subject: string;
-  message: string;
+  issueId: number;
+  issueSubject: string;
+  issueMessage: string;
   createdAt?: Date;
   isSolved: boolean;
   userId: number;
