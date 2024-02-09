@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Notification } from '../../../types';
+import { timeStamp } from 'console';
+import { Timestamp, timestamp } from 'rxjs';
 
 @Component({
   selector: 'app-notification',
@@ -11,5 +13,7 @@ import { Notification } from '../../../types';
 export class NotificationComponent {
   @Input({required: true}) notification: Notification = {} as Notification;
 
-  constructor() { }
+  constructor() {
+    console.log(typeof this.notification.sendOn);
+  }
 }

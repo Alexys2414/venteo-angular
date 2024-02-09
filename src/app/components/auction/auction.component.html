@@ -1,13 +1,15 @@
-<article>
-  <!--Lo de las imágenes hay que ver como hacerlo-->
-  <img src="{{ auction.imageUrl }}" alt="imagen subasta" />
-  <div>
-    <h3>{{ auction.auctionName }}</h3>
+<a routerLink="/auction/{{ auction.auctionId }}" routerLinkActive="active">
+  <article>
+    <img src="{{ auction.imageUrl }}" alt="imagen subasta" />
     <div>
-      <small>{{ userName }}</small>
-      <!--Esto también hay que revisarlo-->
-      <span class="live">En directo</span>
+      <h3>{{ auction.auctionName }}</h3>
+      <div>
+        <small>{{ userName }}</small>
+        @if (isLive) {
+        <span class="live">En directo</span>
+        }
+      </div>
+      <span>{{ auction.initialPrice }}</span>
     </div>
-    <span>{{ auction.initialPrice }}</span>
-  </div>
-</article>
+  </article></a
+>
