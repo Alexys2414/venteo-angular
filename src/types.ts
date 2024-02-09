@@ -1,3 +1,4 @@
+import { Timestamp } from "rxjs";
 
 // Tipos de la aplicación
 export interface Link {
@@ -17,7 +18,7 @@ export interface User {
   bornDate?: Date;
   imageUrl?: string;
   createdAt?: Date;
-  role?: number;
+  roleId?: number;
   money?: number;
 }
 

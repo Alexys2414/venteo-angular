@@ -20,7 +20,7 @@ export class AppComponent {
     lastName: 'Doe',
     email: 'j' + 'doe' + '@example.com',
     money: 1000,
-    role: 1
+    roleId: 1
   }
 
   constructor() { // Esto deberia de decidirlo un servicio
