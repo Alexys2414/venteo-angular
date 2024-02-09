@@ -1,1 +1,22 @@
-<p>support works!</p>
+<main>
+    <section>
+        <h2>Contáctanos</h2>
+        <form>
+          <div>
+            <label for="motivo">Motivo del contacto:</label>
+            <select name="motivo">
+              <option value="" disabled selected>Seleccione una opción</option>
+            </select>
+          </div>
+          <div>
+            <label for="asunto">Asunto:</label>
+            <input type="text" name="asunto" />
+          </div>
+          <div>
+            <label for="mensaje">Mensaje:</label>
+            <textarea name="mensaje" cols="50" rows="10"></textarea>
+          </div>
+          <button type="submit"(submit)="saveIssue">Enviar</button>
+        </form>
+    </section>
+</main>
