@@ -13,9 +13,10 @@
   <section>
     <h2>{{ categories[0].name }}</h2>
     <div>
-      @for (auction of auctions; track auction.auctionId) {
+      @for (auction of auctions; track auction.auctionId) { @if
+      (auction.categoryId == categories[0].categoryId) {
       <app-auction [auction]="auction"></app-auction>
-      }@empty {
+      } }@empty {
       <p>Sin subastas</p>
       }
     </div>
@@ -23,9 +24,21 @@
   <section>
     <h2>{{ categories[1].name }}</h2>
     <div>
-      @for (auction of auctions; track auction.auctionId) {
+      @for (auction of auctions; track auction.auctionId) { @if
+      (auction.categoryId == categories[1].categoryId) {
       <app-auction [auction]="auction"></app-auction>
-      }@empty {
+      } }@empty {
+      <p>Sin subastas</p>
+      }
+    </div>
+  </section>
+  <section>
+    <h2>{{ categories[2].name }}</h2>
+    <div>
+      @for (auction of auctions; track auction.auctionId) { @if
+      (auction.categoryId == categories[2].categoryId) {
+      <app-auction [auction]="auction"></app-auction>
+      } }@empty {
       <p>Sin subastas</p>
       }
     </div>
