@@ -2,9 +2,10 @@
   <section>
     <h2>Subastas en directo</h2>
     <div>
-      @for (auction of auctions; track auction.auctionId) {
+      @for (auction of auctions; track auction.auctionId) { @if
+      (auction.startsAt < now && auction.endsAt > now) {
       <app-auction [auction]="auction"></app-auction>
-      }@empty {
+      } }@empty {
       <p>Sin subastas</p>
       }
     </div>

@@ -16,6 +16,7 @@ import { CategoryService } from '../../services/category.service';
 export class HomeComponent {
   auctions: Auction[] = [];
   categories: Category[] = [];
+  now = new Date();
   
   constructor(
     private auctionService: AuctionService,
