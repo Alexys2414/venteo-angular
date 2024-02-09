@@ -1,5 +1,26 @@
 <main>
   <section>
+    <h2>Subastas en directo</h2>
+    <div>
+      @for (auction of auctions; track auction.auctionId) {
+      <app-auction [auction]="auction"></app-auction>
+      }@empty {
+      <p>Sin subastas</p>
+      }
+    </div>
+  </section>
+  <section>
+    <h2>{{ categories[0].name }}</h2>
+    <div>
+      @for (auction of auctions; track auction.auctionId) {
+      <app-auction [auction]="auction"></app-auction>
+      }@empty {
+      <p>Sin subastas</p>
+      }
+    </div>
+  </section>
+  <section>
+    <h2>{{ categories[1].name }}</h2>
     <div>
       @for (auction of auctions; track auction.auctionId) {
       <app-auction [auction]="auction"></app-auction>

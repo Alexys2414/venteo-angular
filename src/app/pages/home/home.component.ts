@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { UserLayoutComponent } from '../../layouts/user-layout/user-layout.component';
 import { AuctionComponent } from '../../components/auction/auction.component';
 import { AuctionService } from '../../services/auction.service';
-import { Auction } from '../../../types';
+import { Auction, Category } from '../../../types';
+import { CategoryService } from '../../services/category.service';
 
 @Component({
   selector: 'app-home',
@@ -14,18 +15,26 @@ import { Auction } from '../../../types';
 
 export class HomeComponent {
   auctions: Auction[] = [];
+  categories: Category[] = [];
   
   constructor(
-    private auctionService: AuctionService) { }
+    private auctionService: AuctionService,
+    private categoryService: CategoryService) { }
 
   
   ngOnInit(): void {
-    this.findAll();
+    this.findAllAuctions();
+    this.findAllCategories();
   }
 
-  findAll():void{
+  findAllAuctions():void{
     this.auctionService.findAll().subscribe(auctions => {
       this.auctions = auctions;
+    });
+  }
+  findAllCategories():void{
+    this.categoryService.findAll().subscribe(categories => {
+      this.categories = categories;
     });
   }
 }
