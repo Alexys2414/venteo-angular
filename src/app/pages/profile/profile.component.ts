@@ -14,7 +14,7 @@ export class ProfileComponent {
   id: 18,
   firstName: "Natalia",
   lastName: "Risueño",
-  userName: "vvnat",
+  userName: "@vvnat",
   email: "nrisuenosantiago@gmail.com",
   password: "123abc",
   repeatPassword: "123abc",
