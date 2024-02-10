@@ -5,6 +5,11 @@ export interface Link {
   text: string;
 }
 
+export interface LoginForm {
+  username: string;
+  password: string;
+}
+
 // Tipos del servidor
 export interface User {
   id?: number;
@@ -15,9 +20,9 @@ export interface User {
   password?: string;
   repeatPassword?: string;
   bornDate?: Date;
-  imageUrl?: string;
+  imageUrl: string;
   createdAt?: Date;
-  role?: number;
+  role_id?: number;
   money?: number;
 }
 
@@ -27,11 +32,6 @@ export interface Notification {
   subject: string;
   message: string;
   sendOn: Date;
-}
-
-export interface LoginForm {
-  email: string;
-  password: string;
 }
 
 export interface Category {

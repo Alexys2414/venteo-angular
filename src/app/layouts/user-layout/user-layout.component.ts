@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Inject, Input, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
@@ -17,5 +17,10 @@ export class UserLayoutComponent {
       { path: '/profile', text: 'Profile' },
       { path: '/notifications', text: 'Notifications' },
     ]
-    @Input({required: true}) user: User = {} as User;
+
+    @Input() user: User | null = null;
+    
+    constructor() {
+    }
+
 }

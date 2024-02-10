@@ -23,7 +23,6 @@ export class HomeComponent {
   }
   findAll():void{
     this.auctionService.findAll().subscribe(auctions => {
-      console.log('auctions:', auctions);
       this.auctions = auctions;
     });
   }

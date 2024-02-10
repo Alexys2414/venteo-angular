@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { Link, User } from '../../../types';
 import { IconComponent } from '../icon/icon.component';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { getImageUrl } from '../../lib/imageUrl'
 
 @Component({
   selector: 'app-header',
@@ -14,8 +15,11 @@ export class HeaderComponent {
   @Input({required: true}) links: Link[] = [];
   @Input({required: true}) user: User = {} as User;
   isNavOpen = false;
+  imageUrl = getImageUrl(this.user.imageUrl, 60)
 
-  constructor() {}
+  constructor() {
+    console.log(this.user);
+  }
 
   toggleDropdown() {
     const dropdown = document.querySelector("#dropdown") as HTMLElement;
