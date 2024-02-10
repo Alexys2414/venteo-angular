@@ -38,4 +38,5 @@ export class AuctionService {
   findBidsByAuctionId(auctionId: number): Observable<Auction[]> {
     return this.http.get<Auction[]>(`${this.url}/auction/${auctionId}/bids`);
   }
+  
 }

@@ -1,3 +1,4 @@
+import { Timestamp } from "rxjs";
 
 // Tipos de la aplicación
 export interface Link {
@@ -22,7 +23,7 @@ export interface User {
   bornDate?: Date;
   imageUrl: string;
   createdAt?: Date;
-  role_id?: number;
+  roleId?: number;
   money?: number;
 }
 
@@ -66,7 +67,14 @@ export interface Auction {
   initialPrice: number;
   imageUrl: string;
 }
-
+export interface Issue {
+  issueId: number;
+  issueSubject: string;
+  issueMessage: string;
+  createdAt?: Date;
+  isSolved: boolean;
+  userId: number;
+}
 export interface Promotion {
   promotionId: number;
   code: string;
