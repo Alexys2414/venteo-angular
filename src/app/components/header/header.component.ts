@@ -1,24 +1,26 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 import { Link, User } from '../../../types';
 import { IconComponent } from '../icon/icon.component';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { getImageUrl } from '../../lib/imageUrl'
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-header',
   standalone: true,
   imports: [IconComponent, RouterLink, RouterLinkActive],
+  providers: [CookieService],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
+  cookieService: CookieService = inject(CookieService);
   @Input({required: true}) links: Link[] = [];
   @Input({required: true}) user: User = {} as User;
   isNavOpen = false;
   imageUrl = getImageUrl(this.user.imageUrl, 60)
 
   constructor() {
-    console.log(this.user);
   }
 
   toggleDropdown() {
@@ -66,5 +68,10 @@ export class HeaderComponent {
       nav.classList.remove("slide-to-left")
       this.isNavOpen = true;
       nav.classList.toggle("hidden");
+  }
+
+  logout() {
+    this.cookieService.delete('user');
+    window.location.reload();
   }
 }

@@ -21,6 +21,7 @@ export class HomeComponent {
   ngOnInit(): void {
     this.findAll();
   }
+  
   findAll():void{
     this.auctionService.findAll().subscribe(auctions => {
       this.auctions = auctions;

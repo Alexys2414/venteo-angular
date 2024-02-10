@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { LoginForm, User } from '../../../types';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   cookieService: CookieService = inject(CookieService);
   authService: AuthService = inject(AuthService);
 
@@ -23,6 +23,11 @@ export class LoginComponent {
   })
 
   constructor(private router: Router) { }
+
+  ngOnInit(): void {
+    if (this.cookieService.get('user') !== '') {
+    }
+  }
 
   onSubmit() {
     const formValue = this.loginForm.value;
@@ -34,15 +39,20 @@ export class LoginComponent {
 
     this.authService.authenticate(loginForm).subscribe(
       user => {
-        this.writeUserCookie(user as User);
-        
-        this.router.navigate(['/']);
-
+        this.writeUserCookie(user as User);     
+        this.redirect();   
       },
       error => {
         console.log('error', error);
       }
     )
+  }
+
+  redirect() {
+    this.router.navigateByUrl('/');
+    setTimeout(() => {
+      window.location.reload();
+    }, 100);
   }
 
   writeUserCookie(user: User) {
