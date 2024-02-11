@@ -1,7 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { LoginForm, RegisterForm, User } from '../../../types';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { MatTabsModule } from '@angular/material/tabs'
@@ -20,7 +20,9 @@ import { UserService } from '../../services/user.service';
     MatTabsModule,
     MatFormFieldModule,
     MatInput,
-    MatButtonModule
+    MatButtonModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [CookieService],
   templateUrl: './login.component.html',
@@ -39,12 +41,12 @@ export class LoginComponent implements OnInit {
   })
 
   registerForm = new FormGroup({
-    firstName: new FormControl(''),
-    lastName: new FormControl(''),
-    userName: new FormControl(''),
-    email: new FormControl(''),
-    password: new FormControl(''),
-    repeatPassword: new FormControl('')
+    firstName: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]),
+    lastName: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]),
+    userName: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(50)]),
+    repeatPassword: new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(50)])
   })
 
   constructor(private router: Router) { }
@@ -52,6 +54,78 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     if (this.cookieService.get('user') !== '') {
     }
+  }
+
+  getFirstNameErrorMessage() {
+    if (this.registerForm.controls.firstName.hasError('required')) {
+      return 'Debes introducir un nombre';
+    }
+
+    if (this.registerForm.controls.firstName.hasError('maxlength')) {
+      return 'El nombre debe tener menos de 50 caracteres';
+    }
+
+    return this.registerForm.controls.firstName.hasError('minlength') ? 'El nombre debe tener al menos 3 caracteres' : '';
+  }
+
+  getLastNameErrorMessage() {
+    if (this.registerForm.controls.lastName.hasError('required')) {
+      return 'Debes introducir un apellido';
+    }
+
+    if (this.registerForm.controls.lastName.hasError('maxlength')) {
+      return 'El apellido debe tener menos de 50 caracteres';
+    }
+
+    return this.registerForm.controls.lastName.hasError('minlength') ? 'El apellido debe tener al menos 3 caracteres' : '';
+  }
+
+  getUserNameErrorMessage() {
+    if (this.registerForm.controls.userName.hasError('required')) {
+      return 'Debes introducir un nombre de usuario';
+    }
+
+    if (this.registerForm.controls.userName.hasError('maxlength')) {
+      return 'El nombre de usuario debe tener menos de 50 caracteres';
+    }
+
+    return this.registerForm.controls.userName.hasError('minlength') ? 'El nombre de usuario debe tener al menos 3 caracteres' : '';
+  }
+
+  getEmailErrorMessage() {
+    if (this.registerForm.controls.email.hasError('required')) {
+      return 'Debes introducir un correo electrónico';
+    }
+
+    return this.registerForm.controls.email.hasError('email') ? 'No es un correo valido' : '';
+  }
+
+  getPasswordErrorMessage() {
+    if (this.registerForm.controls.password.hasError('required')) {
+      return 'Debes introducir una contraseña';
+    }
+
+    if (this.registerForm.controls.password.hasError('maxlength')) {
+      return 'La contraseña debe tener menos de 50 caracteres';
+    }
+
+    if (this.registerForm.controls.password.hasError('minlength')) {
+      return 'La contraseña debe tener al menos 8 caracteres';
+    }
+
+    return '';
+  }
+
+  getRepeatPasswordErrorMessage() {
+    if (this.registerForm.controls.password.value !== this.registerForm.controls.repeatPassword.value) {
+      return 'Las contraseñas no coinciden';
+    }
+
+    if (this.registerForm.controls.repeatPassword.hasError('required')) {
+      return 'Debes repetir la contraseña';
+    }
+
+    return '';
   }
 
   onLogin() {
