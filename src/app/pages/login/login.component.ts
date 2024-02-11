@@ -1,14 +1,27 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
-import { LoginForm, User } from '../../../types';
+import { LoginForm, RegisterForm, User } from '../../../types';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
-import { Router } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
+import { MatTabsModule } from '@angular/material/tabs'
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInput } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [
+    ReactiveFormsModule, 
+    RouterLink,
+    RouterLinkActive,
+    MatTabsModule,
+    MatFormFieldModule,
+    MatInput,
+    MatButtonModule
+  ],
   providers: [CookieService],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
@@ -16,10 +29,22 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   cookieService: CookieService = inject(CookieService);
   authService: AuthService = inject(AuthService);
+  userService: UserService = inject(UserService);
+
+  hide: boolean = true;
 
   loginForm = new FormGroup({
     username: new FormControl(''),
     password: new FormControl('')
+  })
+
+  registerForm = new FormGroup({
+    firstName: new FormControl(''),
+    lastName: new FormControl(''),
+    userName: new FormControl(''),
+    email: new FormControl(''),
+    password: new FormControl(''),
+    repeatPassword: new FormControl('')
   })
 
   constructor(private router: Router) { }
@@ -29,7 +54,7 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  onSubmit() {
+  onLogin() {
     const formValue = this.loginForm.value;
     
     const loginForm: LoginForm = {
@@ -41,6 +66,29 @@ export class LoginComponent implements OnInit {
       user => {
         this.writeUserCookie(user as User);     
         this.redirect();   
+      },
+      error => {
+        console.log('error', error);
+      }
+    )
+  }
+
+  onRegister() {
+    const formValue = this.registerForm.value;
+
+    const registerForm: RegisterForm = {
+      firstName: formValue.firstName || '',
+      lastName: formValue.lastName || '',
+      userName: formValue.userName || '',
+      email: formValue.email || '',
+      password: formValue.password || '',
+      repeatPassword: formValue.repeatPassword || ''
+    }
+
+    this.userService.create(registerForm).subscribe(
+      user => {
+        this.writeUserCookie(user as User);
+        this.redirect();
       },
       error => {
         console.log('error', error);
