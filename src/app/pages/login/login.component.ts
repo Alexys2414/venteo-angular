@@ -9,6 +9,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { UserService } from '../../services/user.service';
+import { HeaderComponent } from '../../components/header/header.component';
 
 @Component({
   selector: 'app-login',
@@ -22,7 +23,8 @@ import { UserService } from '../../services/user.service';
     MatInput,
     MatButtonModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    HeaderComponent
   ],
   providers: [CookieService],
   templateUrl: './login.component.html',
