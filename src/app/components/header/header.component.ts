@@ -15,8 +15,8 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class HeaderComponent {
   cookieService: CookieService = inject(CookieService);
-  @Input({required: true}) links: Link[] = [];
-  @Input({required: true}) user: User = {} as User;
+  @Input() links: Link[] = [];
+  @Input() user: User = {} as User;
   isNavOpen = false;
   imageUrl = getImageUrl(this.user.imageUrl, 60)
 

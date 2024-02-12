@@ -33,6 +33,7 @@ export class HomeComponent {
       this.auctions = auctions;
     });
   }
+  
   findAllCategories():void{
     this.categoryService.findAll().subscribe(categories => {
       this.categories = categories;

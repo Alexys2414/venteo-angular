@@ -11,6 +11,15 @@ export interface LoginForm {
   password: string;
 }
 
+export interface RegisterForm {
+  firstName: string;
+  lastName: string;
+  userName: string;
+  email: string;
+  password: string;
+  repeatPassword: string;
+}
+
 // Tipos del servidor
 export interface User {
   id?: number;
