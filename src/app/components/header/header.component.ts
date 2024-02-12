@@ -18,7 +18,7 @@ export class HeaderComponent {
   @Input() links: Link[] = [];
   @Input() user: User = {} as User;
   isNavOpen = false;
-  imageUrl = getImageUrl(this.user.imageUrl, 60)
+  imageUrl = getImageUrl('default-avatar', 60)
 
   constructor() {
   }

@@ -11,8 +11,8 @@
         <mat-form-field appearance="outline">
           <mat-label>Contraseña</mat-label>
           <input type="password" matInput formControlName="password" />
-          @if (!isLogged) {
-          <mat-error>Usuario o contraseña incorrectos</mat-error>
+          @if (hasLoginError) {
+          <mat-hint>{{ getLoginErrorMessage() }}</mat-hint>
           }
         </mat-form-field>
         <button mat-raised-button color="primary">Iniciar sesión</button>

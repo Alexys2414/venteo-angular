@@ -55,11 +55,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.cookieService.get('user') !== '') {
+      this.redirect()
     }
-  }
-
-  getLoginErrorMessage() {
-
   }
 
   getFirstNameErrorMessage() {
@@ -134,7 +131,11 @@ export class LoginComponent implements OnInit {
     return '';
   }
 
-  isLogged: boolean = true;
+  hasLoginError: boolean = false;
+
+  getLoginErrorMessage() {
+    return 'Usuario o contraseña incorrecto'
+  }
 
   onLogin() {
     const formValue = this.loginForm.value;
@@ -150,7 +151,7 @@ export class LoginComponent implements OnInit {
         this.redirect();   
       },
       error => {
-        this.isLogged = false;
+        this.hasLoginError = true;
       }
     )
   }
@@ -168,12 +169,13 @@ export class LoginComponent implements OnInit {
     }
 
     this.userService.create(registerForm).subscribe(
-      user => {
-        this.writeUserCookie(user as User);
+      (user: User) => {
+        this.writeUserCookie(user);
         this.redirect();
       },
       error => {
         console.log('error', error);
+
       }
     )
   }
