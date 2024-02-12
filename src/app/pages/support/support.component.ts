@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IssuesService } from '../../services/issues.service';
 import { Issue } from '../../../types';
-import { error } from 'console';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-support',
@@ -10,23 +10,7 @@ import { error } from 'console';
   templateUrl: './support.component.html',
   styleUrl: './support.component.css'
 })
+
 export class SupportComponent {
-
-  constructor(
-    private issueService: IssuesService) { }
-  
-  saveIssue(issue: Issue):void {
-    this.issueService.saveIssue(issue).subscribe(
-      {
-        next: 
-         (savedIssue) => {
-            console.log('Issue guardado:', savedIssue);
-      
-
-      }, error:(error) => {console.log("error",error)}
-
-      })
-    }
     
   }
-

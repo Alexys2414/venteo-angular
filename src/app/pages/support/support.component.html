@@ -3,20 +3,14 @@
         <h2>Contáctanos</h2>
         <form>
           <div>
-            <label for="motivo">Motivo del contacto:</label>
-            <select name="motivo">
-              <option value="" disabled selected>Seleccione una opción</option>
-            </select>
+            <label for="subject">Asunto:</label>
+            <input type="text" name="subject" />
           </div>
           <div>
-            <label for="asunto">Asunto:</label>
-            <input type="text" name="asunto" />
+            <label for="message">Mensaje:</label>
+            <textarea name="message" cols="50" rows="10"></textarea>
           </div>
-          <div>
-            <label for="mensaje">Mensaje:</label>
-            <textarea name="mensaje" cols="50" rows="10"></textarea>
-          </div>
-          <button type="submit"(submit)="saveIssue">Enviar</button>
+          <button type="submit">Enviar</button>
         </form>
     </section>
 </main>
