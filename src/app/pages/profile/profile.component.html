@@ -1,1 +1,24 @@
-<p>profile works!</p>
+<main id="perfil">
+  <nav>
+    <a class="active" href="perfil.html">Perfil</a>
+    <a href="historial.html">Mis Subastas</a>
+    <a href="estadisticas-personales.html">Estadisticas</a>
+  </nav>
+  <section>
+    <div>
+      <a href="editar-perfil.html">
+        <span>Editar el perfil</span>
+        <img src="assets/icons/editar.svg" alt="editar" />
+      </a>
+    </div>
+    <img src="{{ user.imageUrl }}" />
+    <p>{{ user.userName }}</p>
+    <p>{{ user.email }}</p>
+    <p>Contraseña</p>
+    <div>
+      <p>**********</p>
+      <img class="caracteresPerfil" src="assets/icons/ojo-contraseña.svg" />
+    </div>
+    <p>Información Personal</p>
+  </section>
+</main>

@@ -1,8 +1,23 @@
+import { Timestamp } from "rxjs";
 
 // Tipos de la aplicación
 export interface Link {
   path: string;
   text: string;
+}
+
+export interface LoginForm {
+  username: string;
+  password: string;
+}
+
+export interface RegisterForm {
+  firstName: string;
+  lastName: string;
+  userName: string;
+  email: string;
+  password: string;
+  repeatPassword: string;
 }
 
 // Tipos del servidor
@@ -15,9 +30,9 @@ export interface User {
   password?: string;
   repeatPassword?: string;
   bornDate?: Date;
-  imageUrl?: string;
+  imageUrl: string;
   createdAt?: Date;
-  role?: number;
+  roleId?: number;
   money?: number;
 }
 
@@ -27,11 +42,6 @@ export interface Notification {
   subject: string;
   message: string;
   sendOn: Date;
-}
-
-export interface LoginForm {
-  email: string;
-  password: string;
 }
 
 export interface Category {

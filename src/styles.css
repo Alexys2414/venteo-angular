@@ -10,7 +10,7 @@
   --color-primary-7: #f2faff;
   --text-color: rgb(60, 64, 67);
   --text-secondary-color: rgb(95, 99, 104);
-  --error: rgb(217, 48, 37);
+  --error: #d93025;
   --success: rgb(0, 200, 83);
   --warning: rgb(255, 143, 0);
   --info: rgb(23, 162, 184);
@@ -113,6 +113,7 @@ small {
 
 a {
   text-decoration: none;
+  color: inherit;
 }
 
 a:visited {
@@ -131,4 +132,13 @@ a:visited {
   .mobile--only {
     display: none !important;
   }
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }

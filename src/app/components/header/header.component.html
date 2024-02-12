@@ -2,7 +2,7 @@
   <app-icon id="hamburguer" type="hamburguer" (click)="toggleNav()" />
   <div id="profile--overview">
     <span>{{ user.money }} €</span>
-    <img (click)="toggleDropdown()" [src]="user.imageUrl" alt="perfil" />
+    <img (click)="toggleDropdown()" [src]="imageUrl" alt="perfil" />
     <div id="dropdown" class="hidden slide-in-top">
       <a
         (click)="toggleDropdown()"
@@ -16,13 +16,7 @@
         routerLinkActive="active"
         >Cartera</a
       >
-      <a
-        (click)="toggleDropdown()"
-        class="less"
-        routerLink="/logout"
-        routerLinkActive="active"
-        >Cerrar sesión</a
-      >
+      <a (click)="logout()" class="less">Cerrar sesión</a>
     </div>
   </div>
   <nav class="hidden">

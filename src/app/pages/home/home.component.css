@@ -8,9 +8,12 @@ section {
   display: block;
 }
 
-main > section > div {
+main section > div {
   overflow-x: auto;
   overflow-y: hidden;
   white-space: nowrap;
   -ms-overflow-style: none; /* para firefox */
+}
+main section > div > *:not(:last-child) {
+  margin-right: 8px;
 }
