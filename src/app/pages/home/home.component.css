@@ -16,4 +16,5 @@ main section > div {
 }
 main section > div > *:not(:last-child) {
   margin-right: 8px;
+  height: 270px;
 }

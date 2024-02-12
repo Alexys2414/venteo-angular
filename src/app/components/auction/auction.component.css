@@ -9,6 +9,7 @@ article {
   width: 300px;
   border-radius: 8px;
   background: var(----background-color, #fff);
+  height: 270px;
 }
 
 article > img {
@@ -31,7 +32,8 @@ article > div {
 
 article > div > div {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  flex-direction: row;
 }
 
 article .live {
@@ -55,11 +57,4 @@ article > div > span:last-child {
   margin-top: 8px;
   font-size: 0.8rem;
   color: var(--color-text);
-}
-
-@media screen and (min-width: 768px) {
-  article div > div {
-    flex-direction: row;
-    justify-content: space-between;
-  }
 }
