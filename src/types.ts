@@ -20,12 +20,6 @@ export interface RegisterForm {
   repeatPassword: string;
 }
 
-export interface IngresoForm{
-  codigo: string;
-  userId: number;
-  promotionId: number;
-}
-
 // Tipos del servidor
 export interface User {
   id?: number;
@@ -98,6 +92,6 @@ export interface Promotion {
 }
 
 export interface UserPromotion{
-  promotionId: number;
+  codigoPromotion: string;
   userId: number;
 }

@@ -1,7 +1,7 @@
 <main>
   <mat-tab-group>
     <mat-tab label="Ingresar">
-      <form [formGroup]="ingresoForm" (ngSubmit)="onIngreso()">
+      <form [formGroup]="userPromotionForm" (ngSubmit)="onIngreso()">
         <mat-form-field appearance="outline">
           <mat-label>Codigo promocional</mat-label>
           <input matInput formControlName="codigo" />

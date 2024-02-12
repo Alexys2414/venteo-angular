@@ -5,7 +5,8 @@ import { PromotionsService } from '../../services/promotions.service';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-import { IngresoForm } from '../../../types';
+import { UserPromotion, User } from '../../../types';
+import { CookieService } from 'ngx-cookie-service';
 
 
 @Component({
@@ -16,25 +17,32 @@ import { IngresoForm } from '../../../types';
   styleUrl: './wallet.component.css'
 })
 export class WalletComponent{
+  cookieService: CookieService = inject(CookieService);
 
   promotionService: PromotionsService = inject(PromotionsService);
 
-  ingresoForm = new FormGroup({
+  userPromotionForm = new FormGroup({
     codigo: new FormControl(''),
     userId: new FormControl('')
   })
 
   onIngreso(){
-    const formValue = this.ingresoForm.value;
+    const formValue = this.userPromotionForm.value;
      
-    const ingresoForm: IngresoForm = {
-      codigo: formValue.codigo || '',
+    const userPromotionForm: UserPromotion = {
+      codigoPromotion: formValue.codigo || '',
       userId: 1,
-      promotionId: 1
     }
 
-    this.promotionService.use(ingresoForm).subscribe(
-      
+    this.promotionService.use(userPromotionForm).subscribe(
+      (result) => {
+        if(result == false){
+          return 'La promoción no existe o ya fue utilizada';
+        }else{
+          const usuario: User = JSON.parse(this.cookieService.get('user'));
+          
+        }
+      }
     )
   }
 }
