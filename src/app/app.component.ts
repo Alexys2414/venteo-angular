@@ -5,11 +5,12 @@ import { User } from '../types';
 import { UserLayoutComponent } from './layouts/user-layout/user-layout.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { CategoriasComponent } from './pages/categorias/categorias.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [UserLayoutComponent, HeaderComponent, FooterComponent, CommonModule, RouterLink, RouterLinkActive, RouterOutlet],
+  imports: [UserLayoutComponent, HeaderComponent, FooterComponent, CommonModule, RouterLink, RouterLinkActive, RouterOutlet,CategoriasComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

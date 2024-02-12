@@ -9,6 +9,7 @@ import { TermsComponent } from './pages/terms/terms.component';
 import { CategoryComponent } from './pages/category/category.component';
 import { AuctionComponent } from './pages/liveAuction/liveAuction.component';
 import { WalletComponent } from './pages/wallet/wallet.component';
+import { CategoriasComponent } from './pages/categorias/categorias.component';
 
 export const routes: Routes = [
   {path: '', component: HomeComponent, title: 'Subastas • Venteo'},
@@ -18,7 +19,10 @@ export const routes: Routes = [
   {path: 'support', component: SupportComponent, title: 'Soporte • Venteo'},
   {path: 'about-us', component: AboutComponent, title: 'Acerca de • Venteo'},
   {path: 'terms', component: TermsComponent, title: 'Términos y condiciones • Venteo'},
+  { path: 'categories', component: CategoriasComponent,title: 'Categorías • Venteo' },
+  {path: 'category/:id', component: CategoryComponent, title: 'Categoría • Venteo'},
   {path: 'category/:id', component: CategoryComponent, title: 'Categoría • Venteo'},
   {path: 'auction/:id', component: AuctionComponent, title: 'Subasta • Venteo'},
   {path: '**', component: NotFoundComponent, title: 'Ande vas pisha? • Venteo'}
 ];
+

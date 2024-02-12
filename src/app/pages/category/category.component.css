@@ -1,0 +1,16 @@
+main{
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 32px 16px;
+}
+main>div:last-of-type{
+    overflow-x: auto;
+    overflow-y: hidden;
+
+
+}
+
+  .auctions {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(200px, 1fr));
+  }

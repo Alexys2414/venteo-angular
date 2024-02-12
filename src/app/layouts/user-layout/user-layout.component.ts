@@ -3,11 +3,12 @@ import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { Link, User } from '../../../types';
+import { CategoriasComponent } from '../../pages/categorias/categorias.component';
 
 @Component({
   selector: 'app-user-layout',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, FooterComponent],
+  imports: [RouterOutlet, HeaderComponent, FooterComponent,CategoriasComponent],
   templateUrl: './user-layout.component.html',
   styleUrl: './user-layout.component.css'
 })

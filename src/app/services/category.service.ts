@@ -34,4 +34,13 @@ export class CategoryService {
   findAuctionsByCategoryId(categoryId: number): Observable<Category[]> {
     return this.http.get<Category[]>(`${this.url}/categories/${categoryId}/auctions`);
   }
+
+//Alex
+  getAllCategorias(){
+    return this.http.get(`${this.url}/categories`)
+  }
+
+  getCategoriaById(id:number): Observable<any>{
+    return this.http.get(`${this.url}/category/${id}`)
+  }
 }

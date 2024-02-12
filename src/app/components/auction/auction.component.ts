@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Auction, User } from '../../../types';
 import { UserService } from '../../services/user.service';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-auction',
@@ -13,6 +14,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 export class AuctionComponent implements OnInit{
 
   @Input({required: true}) auction: Auction = {} as Auction;
+  @Input() auctionIndex: number= 0;
 
   date = new Date();
   isLive: boolean = false;

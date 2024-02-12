@@ -1,1 +1,22 @@
-<p>category works! {{ id }}</p>
+<main>
+  <a routerLink="/categories" class="back-link">
+    <-- Volver a Categorias
+  </a>
+  <div class="container">
+    <h2>{{ category?.name }}</h2>
+    <p>{{ category?.description }}</p>
+    <h3>Subastas disponibles actualmente:</h3>
+  </div>
+  <style>
+    article{
+      background-color: brown;
+    }
+  </style>
+  <div class="auctions">
+    <app-auction *ngFor="let auction of auctions" [auction]="auction" >
+      </app-auction>
+  </div>
+</main>
+
+
+
