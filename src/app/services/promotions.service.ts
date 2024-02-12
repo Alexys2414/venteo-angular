@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Promotion } from '../../types';
+import {UserPromotion} from '../../types'
 
 @Injectable({
   providedIn: 'root'
@@ -29,5 +30,9 @@ export class PromotionsService {
 
   delete(promotionId: number): Observable<Promotion>{
     return this.http.delete<Promotion>(`${this.url}/promotion/${promotionId}`);
+  }
+
+  use(userPromotionId: UserPromotion): Observable<boolean>{
+    return this.http.post<boolean>(`${this.url}/promotion/use`, userPromotionId);
   }
 }
