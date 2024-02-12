@@ -58,6 +58,10 @@ export class LoginComponent implements OnInit {
     }
   }
 
+  getLoginErrorMessage() {
+
+  }
+
   getFirstNameErrorMessage() {
     if (this.registerForm.controls.firstName.hasError('required')) {
       return 'Debes introducir un nombre';
@@ -130,6 +134,8 @@ export class LoginComponent implements OnInit {
     return '';
   }
 
+  isLogged: boolean = true;
+
   onLogin() {
     const formValue = this.loginForm.value;
     
@@ -144,7 +150,7 @@ export class LoginComponent implements OnInit {
         this.redirect();   
       },
       error => {
-        console.log('error', error);
+        this.isLogged = false;
       }
     )
   }
