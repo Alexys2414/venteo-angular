@@ -21,7 +21,6 @@ export const routes: Routes = [
   {path: 'terms', component: TermsComponent, title: 'Términos y condiciones • Venteo'},
   { path: 'categories', component: CategoriasComponent,title: 'Categorías • Venteo' },
   {path: 'category/:id', component: CategoryComponent, title: 'Categoría • Venteo'},
-  {path: 'category/:id', component: CategoryComponent, title: 'Categoría • Venteo'},
   {path: 'auction/:id', component: AuctionComponent, title: 'Subasta • Venteo'},
   {path: '**', component: NotFoundComponent, title: 'Ande vas pisha? • Venteo'}
 ];

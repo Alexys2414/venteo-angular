@@ -7,11 +7,7 @@
     <p>{{ category?.description }}</p>
     <h3>Subastas disponibles actualmente:</h3>
   </div>
-  <style>
-    article{
-      background-color: brown;
-    }
-  </style>
+
   <div class="auctions">
     <app-auction *ngFor="let auction of auctions" [auction]="auction" >
       </app-auction>
